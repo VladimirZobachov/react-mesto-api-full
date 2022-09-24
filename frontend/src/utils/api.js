@@ -23,6 +23,9 @@ class Api{
         return fetch(`${this._options.baseUrl}/users/me`, {
             method: 'PATCH',
             credentials: "include",
+            headers:{
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 name: name,
                 about: major,
@@ -35,6 +38,9 @@ class Api{
         return fetch(`${this._options.baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             credentials: "include",
+            headers:{
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 avatar: avatar,
             })
@@ -53,6 +59,9 @@ class Api{
         return fetch(`${this._options.baseUrl}/cards`, {
             method: 'POST',
             credentials: "include",
+            headers:{
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 name: name,
                 link: link,

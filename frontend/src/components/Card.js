@@ -7,7 +7,7 @@ function Card(props) {
     const cardDeleteButtonClassName = (
         `gallery__del-button ${isOwn ? 'gallery__del-button-active' : ''}`
     );
-    const isLiked = props.card.likes.some(i => i._id === currentUser._id);
+    const isLiked = props.card.likes.some(i => i === currentUser._id);
     const cardLikeButtonClassName = `gallery__like_type_is-active`;
 
     function handleClick() {
