@@ -12,14 +12,13 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
-
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: false,
 });
 
 app.use(cors({
-  origin: "http://localhost:3001",
+  origin: "http://51.250.25.66:3001",
   credentials: true,
 }));
 
