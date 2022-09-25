@@ -14,7 +14,8 @@ class Api{
 
     getUser(){
         return fetch(`${this._options.baseUrl}/users/me`, {
-          credentials: "include"
+            method: 'GET',
+            credentials: "include",
         })
         .then(this._check);
     }
