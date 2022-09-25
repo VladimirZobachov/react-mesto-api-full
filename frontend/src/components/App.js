@@ -10,7 +10,7 @@ import * as apiAuth from "../utils/apiAuth";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import {Route, Router, useHistory, withRouter} from "react-router-dom";
+import {Route, useHistory, withRouter} from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "./Login";
 import {Switch} from "react-router-dom";
