@@ -157,7 +157,7 @@ function App() {
     const onLogin = (email, password) => {
         return apiAuth
             .authorize(email, password)
-            .then((user) => {
+            .then(() => {
                 setLoggedIn(true);
                 setUserInfo({"email": email});
             })
