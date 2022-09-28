@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
+require('dotenv').config();
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const { DuplicateError } = require('../errorsClasses/DuplicateError');
 const { NotAuthError } = require('../errorsClasses/NotAuthError');
@@ -114,12 +116,15 @@ const login = (req, res, next) => {
     .then((user) => bcrypt.compare(password, user.password)
       .then((isUserValid) => {
         if (isUserValid) {
-          const token = jwt.sign({ _id: user._id }, 'SECRET');
+          const token = jwt.sign(
+              { _id: user._id },
+              NODE_ENV === 'production' ? JWT_SECRET : 'SECRET'
+          );
           res.cookie('jwt', token, {
             maxAge: 3600000,
             httpOnly: true,
             sameSite: true,
-            //secure: true,
+            // secure: true,
           });
           res.send({ data: user.toJSON() });
         } else {

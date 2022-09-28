@@ -168,16 +168,17 @@ function App() {
     }
 
     const onRegister = (email, password) => {
-        return apiAuth
-            .register(email, password)
+        return  apiAuth.register(email, password)
             .then(() => {
                 history.push("/signin");
                 setStatusInfoToolTip(true);
                 setInfoTooltip(true);
+                console.log('hello');
             })
             .catch(() => {
                 setStatusInfoToolTip(false);
                 setInfoTooltip(true);
+                console.log('byby');
             })
     }
 

@@ -4,7 +4,7 @@ function check(res) {
     if (res.ok) {
         return res.json();
     }
-    return Promise.reject(res.status);
+    throw Promise.reject(res.status);
 }
 
 export const register = (email, password) => {
@@ -19,8 +19,9 @@ export const register = (email, password) => {
         }),
     })
         .then((res)=>{
-            check(res);
+            check(res)
         })
+
 }
 
 export const authorize = (email, password) => {
@@ -38,6 +39,7 @@ export const authorize = (email, password) => {
         .then((res)=>{
             check(res);
         })
+
 }
 
 export const getContent = () => {
